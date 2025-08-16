@@ -39,46 +39,51 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
-      <h1 className="text-3xl font-bold mb-4">🌍 Text Translator</h1>
+    <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center p-6">
+  <div className="bg-white/30 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-full max-w-lg border border-white/40">
+    <h1 className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg text-center">
+      🌍 Smart Translator
+    </h1>
 
-      <textarea
-        className="border border-gray-300 rounded-lg p-3 w-full max-w-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        rows="4"
-        placeholder="Enter text in English..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
+    <textarea
+      className="border border-gray-300 rounded-xl p-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
+      rows="4"
+      placeholder="Enter text in English..."
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+    />
 
-      <select
-        className="border border-gray-300 rounded-lg p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        value={targetLang}
-        onChange={(e) => setTargetLang(e.target.value)}
-      >
-        <option value="hi">Hindi</option>
-        <option value="es">Spanish</option>
-        <option value="fr">French</option>
-        <option value="de">German</option>
-        <option value="ta">Tamil</option>
-        <option value="te">Telugu</option>
-        <option value="mr">Marathi</option>
-        <option value="kn">Kannada</option>
-      </select>
+    <select
+      className="border border-gray-300 rounded-xl p-3 mb-4 w-full focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
+      value={targetLang}
+      onChange={(e) => setTargetLang(e.target.value)}
+    >
+      <option value="hi">Hindi</option>
+      <option value="es">Spanish</option>
+      <option value="fr">French</option>
+      <option value="de">German</option>
+      <option value="ta">Tamil</option>
+      <option value="te">Telugu</option>
+      <option value="mr">Marathi</option>
+      <option value="kn">Kannada</option>
+    </select>
 
-      <button
-        onClick={translateText}
-        disabled={loading}
-        className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg disabled:opacity-50"
-      >
-        {loading ? "Translating..." : "Translate"}
-      </button>
+    <button
+      onClick={translateText}
+      disabled={loading}
+      className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl shadow-md transition transform hover:scale-105 disabled:opacity-50"
+    >
+      {loading ? "🔄 Translating..." : "✨ Translate"}
+    </button>
 
-      {translated && (
-        <div className="mt-6 p-4 bg-white rounded-lg shadow-md w-full max-w-md">
-          <h2 className="text-lg font-semibold mb-2">Translated Text:</h2>
-          <p className="text-gray-800">{translated}</p>
-        </div>
-      )}
-    </div>
+    {translated && (
+      <div className="mt-6 p-5 bg-white/60 backdrop-blur-md rounded-xl shadow-md border border-white/40">
+        <h2 className="text-lg font-bold mb-2 text-indigo-800">✅ Translated Text:</h2>
+        <p className="text-gray-900 font-medium">{translated}</p>
+      </div>
+    )}
+  </div>
+</div>
+
   );
 }
