@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Footer from "./Footer";
 
 export default function App() {
   const [text, setText] = useState("");
@@ -38,52 +39,68 @@ export default function App() {
     }
   };
 
+
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center p-6">
-  <div className="bg-white/30 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-full max-w-lg border border-white/40">
-    <h1 className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg text-center">
-       Smart Translator
-    </h1>
+  <div className="min-h-screen flex flex-col justify-between bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6">
 
-    <textarea
-      className="border border-gray-300 rounded-xl p-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
-      rows="4"
-      placeholder="Enter text in English..."
-      value={text}
-      onChange={(e) => setText(e.target.value)}
-    />
+    {/* Main Content */}
+    <div className="flex flex-col items-center justify-center">
+      <div className="bg-white/30 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-full max-w-lg border border-white/40">
+        <h1 className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg text-center">
+          Smart Translator
+        </h1>
 
-    <select
-      className="border border-gray-300 rounded-xl p-3 mb-4 w-full focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
-      value={targetLang}
-      onChange={(e) => setTargetLang(e.target.value)}
-    >
-      <option value="hi">Hindi</option>
-      <option value="es">Spanish</option>
-      <option value="fr">French</option>
-      <option value="de">German</option>
-      <option value="ta">Tamil</option>
-      <option value="te">Telugu</option>
-      <option value="mr">Marathi</option>
-      <option value="kn">Kannada</option>
-    </select>
+        <textarea
+          className="border border-gray-300 rounded-xl p-4 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
+          rows="4"
+          placeholder="Enter text in English..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
 
-    <button
-      onClick={translateText}
-      disabled={loading}
-      className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl shadow-md transition transform hover:scale-105 disabled:opacity-50"
-    >
-      {loading ? "🔄 Translating..." : "✨ Translate"}
-    </button>
+        <select
+          className="border border-gray-300 rounded-xl p-3 mb-4 w-full focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm"
+          value={targetLang}
+          onChange={(e) => setTargetLang(e.target.value)}
+        >
+          <option value="hi">Hindi</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="ta">Tamil</option>
+          <option value="te">Telugu</option>
+          <option value="mr">Marathi</option>
+          <option value="kn">Kannada</option>
+        </select>
 
-    {translated && (
-      <div className="mt-6 p-5 bg-white/60 backdrop-blur-md rounded-xl shadow-md border border-white/40">
-        <h2 className="text-lg font-bold mb-2 text-indigo-800"> Translated Text:</h2>
-        <p className="text-gray-900 font-medium">{translated}</p>
+        <button
+          onClick={translateText}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl shadow-md transition transform hover:scale-105 disabled:opacity-50"
+        >
+          {loading ? "🔄 Translating..." : "✨ Translate"}
+        </button>
+
+        {translated && (
+          <div className="mt-6 p-5 bg-white/60 backdrop-blur-md rounded-xl shadow-md border border-white/40">
+            <h2 className="text-lg font-bold mb-2 text-indigo-800">Translated Text:</h2>
+            <p className="text-gray-900 font-medium">{translated}</p>
+          </div>
+        )}
       </div>
-    )}
-  </div>
-</div>
+    </div>
 
-  );
+    {/* Footer */}
+    <footer className="w-full text-center text-white/90 mb-4">
+      <div className="py-4 bg-white/20 backdrop-blur-lg rounded-xl shadow-md border border-white/30 mx-auto max-w-lg">
+        <p className="text-sm font-medium">
+          © {new Date().getFullYear()} Smart Translator • Built with by Sagar
+        </p>
+      </div>
+    </footer>
+
+  </div>
+);
+
+
 }
