@@ -42,7 +42,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center p-6">
   <div className="bg-white/30 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-full max-w-lg border border-white/40">
     <h1 className="text-4xl font-extrabold mb-6 text-white drop-shadow-lg text-center">
-      🌍 Smart Translator
+       Smart Translator
     </h1>
 
     <textarea
@@ -78,7 +78,7 @@ export default function App() {
 
     {translated && (
       <div className="mt-6 p-5 bg-white/60 backdrop-blur-md rounded-xl shadow-md border border-white/40">
-        <h2 className="text-lg font-bold mb-2 text-indigo-800">✅ Translated Text:</h2>
+        <h2 className="text-lg font-bold mb-2 text-indigo-800"> Translated Text:</h2>
         <p className="text-gray-900 font-medium">{translated}</p>
       </div>
     )}
